@@ -1,11 +1,12 @@
 import { Text, View } from "react-native";
+import { typographyStyles } from "src/styles/typography.styles";
 
 import styles from "./styles";
 
 export const RealtyScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Realty Screen</Text>
+      <Text style={typographyStyles.largeTitle}>Realty Screen</Text>
     </View>
   );
 };

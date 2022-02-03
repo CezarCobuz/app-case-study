@@ -1,4 +1,5 @@
 export enum Screens {
+  BottomTabNavigator = "BottomTabNavigator",
   Home = "Home",
   Insurance = "Insurance",
   Inventory = "Inventory",
