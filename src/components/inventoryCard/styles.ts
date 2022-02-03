@@ -2,28 +2,32 @@ import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from "react-native";
 import C from "src/constants";
 
 type Styles = {
-  container: ViewStyle;
+  spacer: ViewStyle;
+  card: ViewStyle;
   image: ImageStyle;
-  name: TextStyle;
-  price: TextStyle;
+  infoWrapper: ViewStyle;
 };
 
 const styles: Styles = StyleSheet.create<Styles>({
-  container: {
-    backgroundColor: "gold",
+  spacer: {
+    padding: 10,
+  },
+  card: {
+    flex: 1,
+    backgroundColor: "white",
     borderRadius: 14,
     overflow: "hidden",
-    padding: 10,
   },
   image: {
     width: "100%",
     aspectRatio: 1,
   },
-  name: { fontSize: 20, fontWeight: "bold", color: "red" },
-  price: {
-    color: "green",
-    fontSize: 20,
-    fontWeight: "bold",
+  infoWrapper: {
+    flex: 1,
+    backgroundColor: C.colors.contentBackground,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    justifyContent: "space-between",
   },
 });
 

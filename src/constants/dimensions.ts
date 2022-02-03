@@ -1,3 +1,4 @@
 export const dimensions = {
-    headerHeight: 85
-}
+  headerHeight: 85,
+  contentOffset: 10,
+};

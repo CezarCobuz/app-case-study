@@ -9,15 +9,19 @@ export const getDynamicCardSize = (numberOfColumns: number) => {
 
   const bottomTabHeight = useBottomTabBarHeight();
 
+  /** 2 - offset left and right (horizontal) */
+  const availableWidth =
+    (C.screenSize.width - 2 * C.dimensions.contentOffset) / numberOfColumns;
+
+
   let availableHeight =
     C.screenSize.height - C.dimensions.headerHeight - bottomTabHeight;
-
   if (Platform.OS === "ios") {
     availableHeight -= Constants.statusBarHeight;
   }
 
   return {
-    width: C.screenSize.width / numberOfColumns,
+    width: availableWidth,
     height: availableHeight / itemsPerColumns,
   };
 };

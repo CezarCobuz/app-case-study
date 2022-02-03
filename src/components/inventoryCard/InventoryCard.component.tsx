@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
 import C from "src/constants";
+import { sharedStyles } from "src/styles/shared.styles";
+import { typographyStyles } from "src/styles/typography.styles";
 import { getFormattedCurrency } from "src/utils/currency";
 import { getDynamicCardSize } from "./dynamicCardSize";
 import styles from "./styles";
@@ -22,16 +24,21 @@ export const InventoryCard = ({
   const { height, width } = getDynamicCardSize(C.specific.numberOfColumns);
 
   return (
-    <View style={[styles.container, { height: height, width: width }]}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: imageUri,
-        }}
-      />
-
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.price}>{formattedPrice}</Text>
+    <View style={[styles.spacer, { height: height, width: width }]}>
+      <View style={sharedStyles.cardShadow}>
+        <View style={styles.card}>
+          <Image
+            style={styles.image}
+            source={{
+              uri: imageUri,
+            }}
+          />
+          <View style={styles.infoWrapper}>
+            <Text style={typographyStyles.headlineBold}>{name}</Text>
+            <Text style={typographyStyles.subBody}>{formattedPrice}</Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };

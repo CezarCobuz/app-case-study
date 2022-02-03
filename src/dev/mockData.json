@@ -16,10 +16,10 @@
     },
     {
         "id": 3,
-        "name": "Guitar2",
+        "name": "Pocket Watch",
         "purchasePrice": 3850,
-        "type": "MUSIC_INSTRUMENT",
-        "photo": "https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg",
+        "type": "JEWELRY",
+        "photo": "https://images.unsplash.com/photo-1614907884263-9409f5a11875?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
     },
     {
         "id": 4,

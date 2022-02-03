@@ -6,4 +6,7 @@ export const strings = {
     realty: "Realty",
     menu: "Menu",
   },
+  inventory: {
+    title: "Inventory",
+  },
 };

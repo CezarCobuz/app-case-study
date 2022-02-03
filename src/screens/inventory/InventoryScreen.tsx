@@ -17,7 +17,7 @@ export const InventoryScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        title="Inventory"
+        title={C.strings.inventory.title}
         button={
           <Pressable
             onPress={() => navigation.navigate(Screens.AddObject)}
@@ -31,7 +31,7 @@ export const InventoryScreen = () => {
       />
 
       <FlatList
-        style={{ backgroundColor: "hotpink" }}
+        style={styles.cardsWrapper}
         showsVerticalScrollIndicator={false}
         data={valuableItems}
         numColumns={C.specific.numberOfColumns}
