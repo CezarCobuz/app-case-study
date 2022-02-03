@@ -1,8 +1,7 @@
-import { StyleSheet, ViewStyle, TextStyle } from "react-native";
+import { StyleSheet, ViewStyle } from "react-native";
 
 type Styles = {
   container: ViewStyle;
-  title: TextStyle;
 };
 
 const styles: Styles = StyleSheet.create<Styles>({
@@ -10,10 +9,6 @@ const styles: Styles = StyleSheet.create<Styles>({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
   },
 });
 
