@@ -27,7 +27,6 @@ import InsuranceIcon from "src/assets/icons/bottomTabs/insurance.svg";
 import InventoryIcon from "src/assets/icons/bottomTabs/inventory.svg";
 import RealtyIcon from "src/assets/icons/bottomTabs/realty.svg";
 import MenuIcon from "src/assets/icons/bottomTabs/menu.svg";
-import AddIcon from "src/assets/icons/inventory/add.svg";
 import { Screens } from "src/constants/enums";
 import C from "src/constants";
 
@@ -78,7 +77,6 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName={Screens.Inventory}
       screenOptions={{
-        // tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarActiveTintColor: C.colors.tabIconSelected,
         tabBarInactiveTintColor: C.colors.tabIconDefault,
       }}
@@ -105,24 +103,10 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name={Screens.Inventory}
         component={InventoryScreen}
-        options={({ navigation }: RootTabScreenProps<"Inventory">) => ({
-          title: C.strings.bottomTabs.inventory,
+        options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => <InventoryIcon color={color} />,
-
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate(Screens.AddObject)}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <AddIcon
-                color={C.colors.primaryButton}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
+        }}
       />
 
       <BottomTab.Screen
