@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 import mock from "src/dev/mockData.json";
 import { useState } from "react";
-import { InventoryCard } from "src/components/inventoryCard/InventoryCard.component";
+import { InventoryCard } from "src/components/inventoryCard/InventoryCard";
 import { Header } from "src/components/header/Header";
 import AddIcon from "src/assets/icons/inventory/add.svg";
 import { Screens } from "src/constants/enums";
