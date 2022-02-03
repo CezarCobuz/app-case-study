@@ -1,19 +1,18 @@
 import { StyleSheet, ViewStyle, TextStyle } from "react-native";
+import C from "src/constants";
 
 type Styles = {
   container: ViewStyle;
-  title: TextStyle;
+  cardsWrapper: ViewStyle;
 };
 
 const styles: Styles = StyleSheet.create<Styles>({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: C.colors.background,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  cardsWrapper: {
+    paddingHorizontal: C.dimensions.contentOffset,
   },
 });
 

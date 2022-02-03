@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name": "Cartier ring",
+        "purchasePrice": 5780,
+        "type": "JEWELRY",
+        "description": "Gift from my grandfather",
+        "photo": "https://i.ibb.co/znXC7LQ/marcus-lewis-U63z-XX2f7ho-unsplash.jpg",
+    },
+    {
+        "id": 2,
+        "name": "Guitar",
+        "purchasePrice": 850,
+        "type": "MUSIC_INSTRUMENT",
+        "photo": "https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg",
+    },
+    {
+        "id": 3,
+        "name": "Pocket Watch",
+        "purchasePrice": 3850,
+        "type": "JEWELRY",
+        "photo": "https://images.unsplash.com/photo-1614907884263-9409f5a11875?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    },
+    {
+        "id": 4,
+        "name": "Guitar3",
+        "purchasePrice": 4850,
+        "type": "MUSIC_INSTRUMENT",
+        "photo": "https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg",
+    },
+    {
+        "id": 5,
+        "name": "Guitar4",
+        "purchasePrice": 4850,
+        "type": "MUSIC_INSTRUMENT",
+        "photo": "https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg",
+    },
+    {
+        "id": 6,
+        "name": "Guitar6",
+        "purchasePrice": 4850,
+        "type": "MUSIC_INSTRUMENT",
+        "photo": "https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg",
+    }
+]
