@@ -16,8 +16,6 @@ const InventoryContext = React.createContext<TInventoryContext>({
 });
 
 const inventoryReducer = (state: TState, action: TAction) => {
-  console.log("+++ state", state);
-
   switch (action.type) {
     case "add_item":
       const newItem = { ...action.payload, id: state.items.length + 1 };
