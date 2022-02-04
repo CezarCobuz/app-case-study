@@ -1,6 +1,7 @@
 const palette = {
   transparent: "transparent",
   royalBlue: "#2D50E6",
+  roman: "#D95762",
   mercury: "#E5E5E5",
   lemonGrass: "#96948A",
   madras: "#2C2302",
@@ -30,6 +31,7 @@ export const colors = {
     dimAccent: palette.pampas,
     contentBackground: palette.whiteSolid,
     dark: palette.blackSolid,
+    danger: palette.roman,
   },
   dark: {
     // TODO: Add corresponding dark colors
@@ -47,5 +49,6 @@ export const colors = {
     dimAccent: palette.pampas,
     contentBackground: palette.whiteSolid,
     dark: palette.blackSolid,
+    danger: palette.roman,
   },
 };

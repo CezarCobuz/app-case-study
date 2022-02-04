@@ -29,6 +29,14 @@
     },
     "web": {
       "favicon": "src/assets/images/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you upload them in your policy.",
+        }
+      ]
+    ]
   }
 }

@@ -1,8 +1,7 @@
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text } from "react-native";
 import C from "src/constants";
 import { typographyStyles } from "src/styles/typography.styles";
-import styles from "./styles";
 
 type Props = {
   label: string;

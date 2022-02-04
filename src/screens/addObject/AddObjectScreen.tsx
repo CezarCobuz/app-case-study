@@ -1,4 +1,4 @@
-import { Platform, Text, TextInput, View } from "react-native";
+import { Platform, ScrollView, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import styles from "./styles";
@@ -6,7 +6,6 @@ import { useNavigation } from "@react-navigation/native";
 import { TextButton } from "src/components/textButton/TextButton";
 import C from "src/constants";
 import { ImagePicker } from "src/components/imagePicker/ImagePicker";
-import { typographyStyles } from "src/styles/typography.styles";
 import { useState } from "react";
 import { Input } from "src/components/input/Input";
 
@@ -17,7 +16,7 @@ export const AddObjectScreen = () => {
 
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Modal Header  */}
       <View style={styles.topButtonsWrapper}>
         <TextButton
@@ -63,8 +62,11 @@ export const AddObjectScreen = () => {
         multiline
       />
 
+      {/* TODO: Add space for keyboard - simulate KeyboardAvoidingView */}
+      {/* <View style={{height: 300}}/> */}
+
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
-    </View>
+    </ScrollView>
   );
 };
