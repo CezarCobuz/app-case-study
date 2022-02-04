@@ -9,6 +9,7 @@ export type TInventoryItem = {
 
 export type TState = {
   items: TInventoryItem[];
+  totalInventoryValue: number;
 };
 export type TAction = {
   type: "add_item"; // | "edit_item" | "delete_item" etc..

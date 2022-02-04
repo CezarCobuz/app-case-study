@@ -1,7 +1,7 @@
 import { FlatList, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { InventoryCard } from "src/components/inventoryCard/InventoryCard";
 import { Header } from "src/components/header/Header";
 import AddIcon from "src/assets/icons/inventory/add.svg";
@@ -17,6 +17,12 @@ export const InventoryScreen = () => {
 
   const valuableItems = inventoryContext.inventoryState.items;
 
+  const flatListRef = useRef<any>();
+
+  useEffect(() => {
+    flatListRef.current.scrollToEnd({ animated: true });
+  }, [valuableItems]);
+
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -30,6 +36,7 @@ export const InventoryScreen = () => {
       />
 
       <FlatList
+        ref={flatListRef}
         style={styles.cardsWrapper}
         showsVerticalScrollIndicator={false}
         data={valuableItems}

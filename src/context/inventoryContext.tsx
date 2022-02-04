@@ -1,9 +1,13 @@
 import React, { useReducer } from "react";
-import { TInventoryContext, TState } from "./inventoryContext.types";
+import { TAction, TInventoryContext, TState } from "./inventoryContext.types";
 import mock from "src/dev/mockData.json";
 
 const initialInventoryState: TState = {
   items: mock,
+  totalInventoryValue: mock.reduce(
+    (prev, current) => prev + current.purchasePrice,
+    0
+  ),
 };
 
 const InventoryContext = React.createContext<TInventoryContext>({
@@ -11,13 +15,16 @@ const InventoryContext = React.createContext<TInventoryContext>({
   inventoryDispatch: () => {},
 });
 
-const inventoryReducer = (state: any, action: any) => {
+const inventoryReducer = (state: TState, action: TAction) => {
+  console.log("+++ state", state);
+
   switch (action.type) {
     case "add_item":
       const newItem = { ...action.payload, id: state.items.length + 1 };
 
       return {
         ...state,
+        totalInventory: state.totalInventoryValue + newItem.purchasePrice,
         items: [...state.items, newItem],
       };
 
@@ -49,3 +56,5 @@ export const InventoryProvider = ({
 };
 
 export default InventoryContext;
+
+// Extend reducer with cb -> https://stackoverflow.com/a/66849648/8597377

@@ -24,6 +24,17 @@ export const AddObjectScreen = () => {
 
   const inventoryContext = useContext(InventoryContext);
 
+  /** Minimal validation */
+  const newTotal =
+    inventoryContext.inventoryState.totalInventoryValue + parseInt(price);
+
+  const itemCanBeAdded =
+    image !== null &&
+    image !== "" &&
+    name !== "" &&
+    price !== "" &&
+    newTotal <= C.specific.maximumInventoryValue;
+
   return (
     <ScrollView
       style={styles.container}
@@ -42,7 +53,7 @@ export const AddObjectScreen = () => {
         {/* TODO: Mode for edit  */}
         <TextButton
           label={C.strings.addObject.add}
-          onPress={() =>
+          onPress={() => {
             inventoryContext.inventoryDispatch({
               type: "add_item",
               payload: {
@@ -52,9 +63,11 @@ export const AddObjectScreen = () => {
                 type: "TODO:",
                 description: description,
               },
-            })
-          }
-          // disabled
+            });
+
+            navigation.goBack();
+          }}
+          disabled={!itemCanBeAdded}
         />
       </View>
 
