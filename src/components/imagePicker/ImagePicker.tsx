@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import C from "src/constants";
 import { typographyStyles } from "src/styles/typography.styles";
@@ -9,7 +9,7 @@ import TrashIcon from "src/assets/icons/addObject/trash.svg";
 import { IconButton } from "../iconButton/IconButton";
 
 type Props = {
-  onPress: () => void;
+  setImageUri: (uri: string) => void;
 };
 
 const pickImage = async (setImage: any) => {
@@ -26,10 +26,14 @@ const pickImage = async (setImage: any) => {
 };
 
 export const ImagePicker = (props: Props): JSX.Element => {
-  const { onPress } = props;
+  const { setImageUri } = props;
 
   // ExpoImagePicker.ImagePickerResult
   const [image, setImage] = useState<any>(null);
+
+  useEffect(() => {
+    setImageUri(image);
+  }, [image]);
 
   return (
     <Pressable

@@ -1,0 +1,21 @@
+export type TInventoryItem = {
+  id?: number;
+  name: string;
+  purchasePrice: number;
+  type: string;
+  description?: string;
+  photo: string;
+};
+
+export type TState = {
+  items: TInventoryItem[];
+};
+export type TAction = {
+  type: "add_item"; // | "edit_item" | "delete_item" etc..
+  payload: TInventoryItem;
+};
+
+export type TInventoryContext = {
+  inventoryState: TState;
+  inventoryDispatch: React.Dispatch<TAction>;
+};
