@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { TextButton } from "src/components/textButton/TextButton";
 import C from "src/constants";
 import { ImagePicker } from "src/components/imagePicker/ImagePicker";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Input } from "src/components/input/Input";
 
 export const AddObjectScreen = () => {
@@ -18,8 +18,15 @@ export const AddObjectScreen = () => {
 
   const keyboard = useKeyboard();
 
+  const scrollViewRef = useRef<any>();
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      ref={scrollViewRef}
+      onContentSizeChange={() =>
+        scrollViewRef.current.scrollToEnd({ animated: false })
+      }
+    >
       {/* Modal Header  */}
       <View style={styles.topButtonsWrapper}>
         <TextButton
@@ -69,7 +76,7 @@ export const AddObjectScreen = () => {
         Workaround as KeyboardAvoidingView did not work property
         TODO: Investigate: if modal from react-navigation is causing this)
       */}
-      {keyboard.keyboardShown && (
+      {keyboard.keyboardShown && Platform.OS === "ios" && (
         <View style={{ height: keyboard.keyboardHeight }} />
       )}
 
