@@ -1,4 +1,4 @@
-import { FlatList, Pressable, SafeAreaView, Text, View } from "react-native";
+import { FlatList, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 import mock from "src/dev/mockData.json";
@@ -8,6 +8,7 @@ import { Header } from "src/components/header/Header";
 import AddIcon from "src/assets/icons/inventory/add.svg";
 import { Screens } from "src/constants/enums";
 import C from "src/constants";
+import { IconButton } from "src/components/iconButton/IconButton";
 
 export const InventoryScreen = () => {
   const navigation = useNavigation();
@@ -19,14 +20,10 @@ export const InventoryScreen = () => {
       <Header
         title={C.strings.inventory.title}
         button={
-          <Pressable
+          <IconButton
             onPress={() => navigation.navigate(Screens.AddObject)}
-            style={({ pressed }) => ({
-              opacity: pressed ? 0.5 : 1,
-            })}
-          >
-            <AddIcon color={C.colors.primaryButton} />
-          </Pressable>
+            icon={<AddIcon color={C.colors.primaryButton} />}
+          />
         }
       />
 

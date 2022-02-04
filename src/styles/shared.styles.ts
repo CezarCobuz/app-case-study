@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle } from "react-native";
+import { StyleSheet, ViewStyle, TextStyle } from "react-native";
 import C from "src/constants";
 
 type Styles = {
@@ -19,4 +19,5 @@ export const sharedStyles: Styles = StyleSheet.create<Styles>({
 
     elevation: 6,
   },
+
 });
