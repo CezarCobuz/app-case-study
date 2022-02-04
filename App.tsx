@@ -1,11 +1,9 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
-import useCachedResources from "./src/hooks/useCachedResources";
-
 import "intl";
 import "intl/locale-data/jsonp/en";
-import { Navigation } from "src/navigation";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { RootNavigator } from "src/navigation/RootNavigator";
+import useCachedResources from "./src/hooks/useCachedResources";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -15,7 +13,7 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation />
+        <RootNavigator />
         <StatusBar />
       </SafeAreaProvider>
     );
