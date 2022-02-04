@@ -6,10 +6,12 @@ import { useNavigation } from "@react-navigation/native";
 import { TextButton } from "src/components/textButton/TextButton";
 import C from "src/constants";
 import { ImagePicker } from "src/components/imagePicker/ImagePicker";
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import { Input } from "src/components/input/Input";
+import InventoryContext from "src/context/inventoryContext";
 
 export const AddObjectScreen = () => {
+  const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -19,6 +21,20 @@ export const AddObjectScreen = () => {
   const keyboard = useKeyboard();
 
   const scrollViewRef = useRef<any>();
+
+  const inventoryContext = useContext(InventoryContext);
+
+  /** Minimal validation */
+  const newTotal =
+    inventoryContext.inventoryState.totalInventoryValue + parseInt(price);
+
+  const itemCanBeAdded =
+    image !== null &&
+    image !== "" &&
+    name !== "" &&
+    price !== "" &&
+    newTotal <= C.specific.maximumInventoryValue;
+
   return (
     <ScrollView
       style={styles.container}
@@ -37,13 +53,26 @@ export const AddObjectScreen = () => {
         {/* TODO: Mode for edit  */}
         <TextButton
           label={C.strings.addObject.add}
-          onPress={() => console.log("TODO: Add item")}
-          disabled
+          onPress={() => {
+            inventoryContext.inventoryDispatch({
+              type: "add_item",
+              payload: {
+                photo: image,
+                name: name,
+                purchasePrice: parseInt(price),
+                type: "TODO:",
+                description: description,
+              },
+            });
+
+            navigation.goBack();
+          }}
+          disabled={!itemCanBeAdded}
         />
       </View>
 
       <View style={styles.photoSpacer}>
-        <ImagePicker onPress={() => {}} />
+        <ImagePicker setImageUri={setImage} />
       </View>
 
       <Input
