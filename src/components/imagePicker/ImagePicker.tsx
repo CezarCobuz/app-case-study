@@ -13,14 +13,12 @@ type Props = {
 };
 
 const pickImage = async (setImage: any) => {
-  let result = await ExpoImagePicker.launchImageLibraryAsync({
+  const result = await ExpoImagePicker.launchImageLibraryAsync({
     mediaTypes: ExpoImagePicker.MediaTypeOptions.Images,
     allowsEditing: true,
     aspect: [1, 1],
     quality: 1,
   });
-
-  console.log(result);
 
   if (!result.cancelled) {
     setImage(result.uri);
