@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import * as ExpoImagePicker from "expo-image-picker";
+import { Image, Pressable, Text } from "react-native";
 import C from "src/constants";
 import { typographyStyles } from "src/styles/typography.styles";
 import styles from "./styles";
 import PhotoIcon from "src/assets/icons/addObject/photo.svg";
-import * as ExpoImagePicker from "expo-image-picker";
 import TrashIcon from "src/assets/icons/addObject/trash.svg";
 import { IconButton } from "../iconButton/IconButton";
 
@@ -45,7 +45,7 @@ export const ImagePicker = (props: Props): JSX.Element => {
         },
       ]}
     >
-      {image ? (
+      {!!image ? (
         <>
           <Image source={{ uri: image }} style={styles.image} />
           <IconButton

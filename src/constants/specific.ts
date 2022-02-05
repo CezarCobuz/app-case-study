@@ -3,4 +3,9 @@ export const specific = {
   numberOfColumns: 2,
 
   maximumInventoryValue: 40000,
+
+  currency: {
+    name: "EUR",
+    symbol: "€",
+  },
 };

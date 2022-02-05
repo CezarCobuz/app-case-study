@@ -20,6 +20,7 @@ export const strings = {
     categoryPlaceholder: "Select a category...",
     value: "Value",
     valuePlaceholder: "700",
+    valueWarning: 'Total exceeds',
     description: "Description",
     descriptionPlaceholder: "Optional",
   },

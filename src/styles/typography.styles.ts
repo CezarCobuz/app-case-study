@@ -8,6 +8,7 @@ type Styles = {
   bodyBold: TextStyle;
   subBody: TextStyle;
   captionBold: TextStyle;
+  subCaption: TextStyle;
 };
 
 export const typographyStyles: Styles = StyleSheet.create<Styles>({
@@ -37,6 +38,10 @@ export const typographyStyles: Styles = StyleSheet.create<Styles>({
   captionBold: {
     fontSize: 13,
     fontWeight: "400",
+    color: C.colors.textPrimary,
+  },
+  subCaption: {
+    fontSize: 9,
     color: C.colors.textPrimary,
   },
 });
