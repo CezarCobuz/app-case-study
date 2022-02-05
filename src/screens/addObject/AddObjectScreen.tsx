@@ -9,6 +9,12 @@ import { ImagePicker } from "src/components/imagePicker/ImagePicker";
 import { useRef, useState, useContext } from "react";
 import { Input } from "src/components/input/Input";
 import InventoryContext from "src/context/inventoryContext";
+import {
+  getPriceWarningMessage,
+  validateAddItemInputs,
+  validatePrice,
+} from "./utils/validator";
+import { Warning } from "src/components/warning/Warning";
 
 export const AddObjectScreen = () => {
   const [image, setImage] = useState("");
@@ -17,24 +23,18 @@ export const AddObjectScreen = () => {
   const [description, setDescription] = useState("");
 
   const navigation = useNavigation();
-
   const keyboard = useKeyboard();
-
   const scrollViewRef = useRef<any>();
-
   const inventoryContext = useContext(InventoryContext);
 
-  /** Minimal validation */
-  const newTotal =
-    inventoryContext.inventoryState.totalInventoryValue + parseInt(price);
-
-  const itemCanBeAdded =
-    image !== null &&
-    image !== "" &&
-    name !== "" &&
-    price !== "" &&
-    newTotal <= C.specific.maximumInventoryValue;
-
+  const priceIsValid = validatePrice(inventoryContext, price);
+  const itemCanBeAdded = validateAddItemInputs(
+    image,
+    name,
+    price,
+    priceIsValid
+  );
+  const priceWarningMessage = getPriceWarningMessage(inventoryContext);
   return (
     <ScrollView
       style={styles.container}
@@ -46,12 +46,14 @@ export const AddObjectScreen = () => {
       {/* Modal Header  */}
       <View style={styles.topButtonsWrapper}>
         <TextButton
+          testID="AddObjectScreen.TextButton.Cancel"
           label={C.strings.addObject.cancel}
           onPress={() => navigation.goBack()}
         />
 
         {/* TODO: Mode for edit  */}
         <TextButton
+          testID="AddObjectScreen.TextButton.Add"
           label={C.strings.addObject.add}
           onPress={() => {
             inventoryContext.inventoryDispatch({
@@ -76,6 +78,7 @@ export const AddObjectScreen = () => {
       </View>
 
       <Input
+        inputTestID="AddObjectScreen.TextInput.Name"
         containerStyle={styles.inputContainerStyle}
         label={C.strings.addObject.name}
         placeholder={C.strings.addObject.namePlaceholder}
@@ -85,13 +88,15 @@ export const AddObjectScreen = () => {
       {/* TODO: Add Category Picker here   */}
 
       <Input
-        containerStyle={styles.inputContainerStyle}
+        inputTestID="AddObjectScreen.TextInput.Value"
+        // containerStyle={styles.inputContainerStyle}
         label={C.strings.addObject.value}
         placeholder={C.strings.addObject.valuePlaceholder}
         onChangeText={setPrice}
         keyboardType={"numeric"}
-        currency={"€"}
+        currency={C.specific.currency.symbol}
       />
+      <Warning message={priceWarningMessage} showMessage={!priceIsValid} />
 
       <Input
         containerStyle={styles.inputContainerStyle}

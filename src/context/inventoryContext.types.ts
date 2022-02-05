@@ -2,7 +2,7 @@ export type TInventoryItem = {
   id?: number;
   name: string;
   purchasePrice: number;
-  type: string;
+  type: string; // TODO: const strings
   description?: string;
   photo: string;
 };

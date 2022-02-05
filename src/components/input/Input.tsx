@@ -18,6 +18,7 @@ type Props = {
   containerStyle?: ViewStyle;
   currency?: string | undefined;
   multiline?: boolean | undefined;
+  inputTestID?: string;
 };
 
 export const Input = (props: Props): JSX.Element => {
@@ -29,6 +30,7 @@ export const Input = (props: Props): JSX.Element => {
     containerStyle,
     currency,
     multiline,
+    inputTestID,
   } = props;
 
   const [focused, setFocused] = useState(false);
@@ -38,6 +40,7 @@ export const Input = (props: Props): JSX.Element => {
     <View style={containerStyle}>
       <Text style={typographyStyles.captionBold}>{label}</Text>
       <TextInput
+        testID={inputTestID}
         maxLength={currency ? 5 : undefined}
         keyboardType={keyboardType}
         onFocus={() => setFocused(true)}

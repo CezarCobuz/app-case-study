@@ -8,10 +8,11 @@ type Props = {
   onPress: () => void;
 
   disabled?: boolean;
+  testID?: string;
 };
 
 export const TextButton = (props: Props): JSX.Element => {
-  const { label = "", disabled = false, onPress } = props;
+  const { label = "", disabled = false, onPress, testID } = props;
 
   return (
     <Pressable
@@ -20,6 +21,7 @@ export const TextButton = (props: Props): JSX.Element => {
       style={({ pressed }) => ({
         opacity: pressed ? 0.5 : 1,
       })}
+      testID={testID}
     >
       <Text
         style={[
