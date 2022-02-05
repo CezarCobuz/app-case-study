@@ -34,7 +34,7 @@ export const InventoryCard = ({
             }}
           />
           <View style={styles.infoWrapper}>
-            <Text style={typographyStyles.headlineBold}>{name}</Text>
+            <Text style={typographyStyles.headlineBold} numberOfLines={2}>{name}</Text>
             <Text style={typographyStyles.subBody}>{formattedPrice}</Text>
           </View>
         </View>
